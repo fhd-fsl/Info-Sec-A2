@@ -2,7 +2,7 @@
 # Format is key = value, one per line. Keep the keys exactly as below.
 roll           = 23i-0614
 flag           = FLAG{c3603ab534897940}
-recovered_dh_b = 0
+recovered_dh_b = 426299379703
 cracked_pin    = summer283
 # optional: hex of (greeting plaintext XOR STATUS-reply plaintext)
 nonce_xor_hex  = 

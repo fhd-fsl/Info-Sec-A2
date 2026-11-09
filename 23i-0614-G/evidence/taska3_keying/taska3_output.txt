@@ -1,0 +1,34 @@
+====================================================
+[*] SmartLock v1 Keying Recovery (TASKA3)
+[*] Transcript : /mnt/c/Users/fahad/Desktop/Projects/Info Sec A2/lab/../23i-0614-G/evidence/taska3_keying/taska3_stream.txt
+====================================================
+[*] Captured suite : AES256-GCM
+[*] MSG records    : 8
+[*] p = 1036603071667
+[*] g = 2
+[*] B = 561189784987 (lock public share)
+[*] A = 311332329475 (hub public share)
+[*] BSGS table size: 1018138 (m = 1018138)
+[*] Baby steps: 71.1298 ms
+[*] Giant steps: 1.24582 ms
+[+] recovered_dh_b = 3979609765
+[+] verification g^b mod p == B : yes
+[*] shared secret s = A^b mod p = 462921519764
+[*] v1 session key = 0000000000000000000000000000000000000000000000000000006bc845d294
+[RECORD] Paired with SmartLock. Pairing secret: FLAG{c3603ab534897940}
+
+>>> FLAG RECOVERED: FLAG{c3603ab534897940} <<<
+[+] Key material written to /mnt/c/Users/fahad/Desktop/Projects/Info Sec A2/lab/../23i-0614-G/evidence/taska3_keying/recovered_key.txt
+
+============ DIRECT-PARAMETER MODE (--solve) ============
+====================================================
+[*] SmartLock v1 BSGS Discrete-Log Solver (TASKA3)
+[*] p = 1036603071667
+[*] g = 2
+[*] B = 561189784987
+====================================================
+[*] Table size : 1018138 (m = 1018138)
+[*] Baby steps : 68.1101 ms
+[*] Giant steps: 1.04019 ms
+[+] recovered_dh_b = 3979609765
+[+] verification g^b mod p == B : yes
