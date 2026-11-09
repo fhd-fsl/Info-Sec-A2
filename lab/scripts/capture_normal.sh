@@ -4,7 +4,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LAB_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 SMARTLOCK_DIR="$LAB_DIR/smartlock"
-EVIDENCE_DIR="$LAB_DIR/../23i-0614-G/evidence"
+EVIDENCE_DIR="$LAB_DIR/../23i-0614-G/evidence/baseline"
 
 mkdir -p "$EVIDENCE_DIR"
 

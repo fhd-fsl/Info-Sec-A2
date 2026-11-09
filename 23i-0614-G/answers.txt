@@ -1,7 +1,7 @@
 # Part A answers for roll 23i-0614, section G
 # Format is key = value, one per line. Keep the keys exactly as below.
 roll           = 23i-0614
-flag           = FLAG{...your recovered pairing secret...}
+flag           = FLAG{c3603ab534897940}
 recovered_dh_b = 0
 cracked_pin    = ...
 # optional: hex of (greeting plaintext XOR STATUS-reply plaintext)
