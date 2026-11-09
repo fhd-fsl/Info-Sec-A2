@@ -3,7 +3,7 @@
 roll           = 23i-0614
 flag           = FLAG{c3603ab534897940}
 recovered_dh_b = 0
-cracked_pin    = ...
+cracked_pin    = summer283
 # optional: hex of (greeting plaintext XOR STATUS-reply plaintext)
 nonce_xor_hex  = 
 

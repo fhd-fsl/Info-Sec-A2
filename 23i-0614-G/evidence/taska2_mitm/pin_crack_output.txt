@@ -1,0 +1,5 @@
+[*] Offline PIN recovery
+[*] Target MD5 : 8ce6450b7ffe96f90a954d690c4fc17f
+[*] Wordlist   : /mnt/c/Users/fahad/Desktop/Projects/Info Sec A2/lab/smartlock/pin_wordlist.txt
+[+] PIN cracked: summer283 (75284 candidates, 26 ms)
+[+] cracked_pin = summer283
