@@ -29,3 +29,4 @@ ip netns exec vm2_kali ip link set lo up
 echo "[+] Isolated Lab Network configured:"
 echo "    VM1 (Lock): 10.10.10.11 (dev veth_lock)"
 echo "    VM2 (Kali): 10.10.10.12 (dev veth_kali)"
+
