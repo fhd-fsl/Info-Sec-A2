@@ -1,0 +1,36 @@
+====================================================
+[*] SmartLock v1 Nonce-Reuse / Two-Time Pad (TASKA4)
+[*] Transcript : /mnt/c/Users/fahad/Desktop/Projects/Info Sec A2/lab/../23i-0614-G/evidence/taska4_nonce/taska4_stream.txt
+[*] Suite      : AES256-GCM
+[*] MSG records: 8
+====================================================
+[*] Nonce 223b7032c9d5f666cd0974eb reused by 8 records
+
+[+] Identified greeting record and STATUS reply under the same nonce
+[*] Greeting body  C1 (61 bytes)
+    7d55ff5f22e982e4255edf0717d14534ff84a88ca457f7b9693b0fdba5a45cf06cbd91f128c5e73dba63e6893f0b63567cc739bfb5de7732b0748a6d7c
+[*] STATUS body    C2 (22 bytes)
+    7e60d77902adeedc0f61f26364c94a2ae4abac9cf249
+[+] C1 xor C2 (22 bytes)
+    0335282620446c382a3f2d6473180f1e1b2f0410561e
+[+] Crib           : Paired with SmartLock. Pairing secret: 
+[+] Recovered text : STATE LOCKED unlocks=0
+
+>>> nonce_xor_hex = 0335282620446c382a3f2d6473180f1e1b2f0410561e <<<
+[+] Proof written to /mnt/c/Users/fahad/Desktop/Projects/Info Sec A2/lab/../23i-0614-G/evidence/taska4_nonce/nonce_xor.txt
+
+============ STANDALONE --xor MODE ============
+====================================================
+[*] Standalone two-time-pad XOR (TASKA4)
+[*] Input mode : wire ct (tag stripped)
+====================================================
+[*] Body 1 (61 bytes)
+    7d55ff5f22e982e4255edf0717d14534ff84a88ca457f7b9693b0fdba5a45cf06cbd91f128c5e73dba63e6893f0b63567cc739bfb5de7732b0748a6d7c
+[*] Body 2 (22 bytes)
+    7e60d77902adeedc0f61f26364c94a2ae4abac9cf249
+[+] XOR (22 bytes)
+    0335282620446c382a3f2d6473180f1e1b2f0410561e
+[+] Crib           : Paired with SmartLock. Pairing secret: 
+[+] Recovered text : STATE LOCKED unlocks=0
+
+>>> nonce_xor_hex = 0335282620446c382a3f2d6473180f1e1b2f0410561e <<<

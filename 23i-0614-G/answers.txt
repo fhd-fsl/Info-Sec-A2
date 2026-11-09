@@ -5,5 +5,5 @@ flag           = FLAG{c3603ab534897940}
 recovered_dh_b = 426299379703
 cracked_pin    = summer283
 # optional: hex of (greeting plaintext XOR STATUS-reply plaintext)
-nonce_xor_hex  = 
+nonce_xor_hex  = 0335282620446c382a3f2d6473180f1e1b2f0410561e
 

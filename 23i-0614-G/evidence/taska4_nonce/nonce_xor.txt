@@ -1,0 +1,10 @@
+# TASKA4 nonce-reuse proof (SmartLock v1, AES-GCM)
+nonce = 223b7032c9d5f666cd0974eb
+ciphertext_a_hex = 7d55ff5f22e982e4255edf0717d14534ff84a88ca457f7b9693b0fdba5a45cf06cbd91f128c5e73dba63e6893f0b63567cc739bfb5de7732b0748a6d7c3fbb9e804f97e8b789486c978b5e4762
+ciphertext_b_hex = 7e60d77902adeedc0f61f26364c94a2ae4abac9cf249ae3509bcbface3d0cac460353d4d7e69
+body_a_hex = 7d55ff5f22e982e4255edf0717d14534ff84a88ca457f7b9693b0fdba5a45cf06cbd91f128c5e73dba63e6893f0b63567cc739bfb5de7732b0748a6d7c
+body_b_hex = 7e60d77902adeedc0f61f26364c94a2ae4abac9cf249
+nonce_xor_hex = 0335282620446c382a3f2d6473180f1e1b2f0410561e
+crib = Paired with SmartLock. Pairing secret: 
+recovered_plaintext = STATE LOCKED unlocks=0
+recovered_plaintext_hex = 5354415445204c4f434b454420756e6c6f636b733d30
