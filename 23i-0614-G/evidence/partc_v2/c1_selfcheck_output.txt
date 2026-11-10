@@ -1,0 +1,13 @@
+====================================================
+SmartLock v2 (securelink2.cpp) Automated Self-Check
+Testing: /mnt/c/Users/fahad/Desktop/Projects/Info Sec A2/lab/../23i-0614-G/securelink2.cpp
+====================================================
+[Check 1] Cipher Suite Policy (No NULL / No Downgrade)... PASS
+[Check 2] Key Derivation via KDF (Not raw secret)... PASS
+[Check 3] Unique Nonce per Record under Key... PASS
+[Check 4] AEAD Seal and Open Correctness... PASS
+[Check 5] Replay & Out-of-Order Record Rejection... PASS
+[Check 6] Source Scan (KDF keyword present, no md5, no todo)... PASS
+====================================================
+ALL 6 SELF-CHECKS PASSED
+====================================================

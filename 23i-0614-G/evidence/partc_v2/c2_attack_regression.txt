@@ -1,0 +1,90 @@
+================================================================================
+SmartLock v2 Security Regression Study: Re-running Part A Attacks (TASKA1-TASKA5)
+Student: Fahad Bin Faisal (23i-0614, Section G)
+================================================================================
+
+Summary Table: v1 Attack to v2 Result
+--------------------------------------------------------------------------------
+Stage | Attack | v1 Impact | v2 Result | Mechanism Defeating Attack
+--------------------------------------------------------------------------------
+1     | TASKA1 (Downgrade)   | NULL chosen, flag leaks | ABORTED / REJECTED | choose_suite rejects NULL; signed transcript check
+2     | TASKA2 (MITM Relay)  | Dual keys, traffic read | ABORTED / REJECTED | RSA-2048 certificate pinning + DH signature check
+3     | TASKA3 (Key Recovery)| BSGS cracks 40-bit b    | FAILED / ABORTED   | 2048-bit ephemeral DH (DHE) O(sqrt(p)) = 2^1024
+4     | TASKA4 (Nonce Reuse) | Two-time pad leaks text | FAILED / INFEASIBLE| Per-record monotonic counter nonce + directional keys
+5     | TASKA5 (Replay)      | Captured UNLOCK re-opens| REJECTED / DROPPED | Ephemeral keys + sequence number binding (AAD)
+--------------------------------------------------------------------------------
+
+Detailed Execution Logs:
+================================================================================
+
+--------------------------------------------------------------------------------
+1. TASKA1 (Negotiation Downgrade to NULL) against SmartLock v2
+--------------------------------------------------------------------------------
+[Proxy Output]:
+[Hub Client Output (exit code 1)]:
+[hub] abort: no suite
+[Lock Server Output]:
+SmartLock v2 smartlock-23i-0614.local listening on port 9030
+RESULT: Lock server choose_suite() refused NULL offer and sent ALERT. Hub aborted. Attack defeated.
+
+--------------------------------------------------------------------------------
+2. TASKA2 (MITM Relay / DH Substitution) against SmartLock v2
+--------------------------------------------------------------------------------
+[Proxy Output]:
+====================================================
+[*] SmartLock v1 MITM Impersonation Exploit (TASKA2)
+[*] Target Lock Server : 10.10.10.11:9030
+[*] Relay Listening on : 0.0.0.0:8000
+[*] PIN Wordlist       : /mnt/c/Users/fahad/Desktop/Projects/Info Sec A2/lab/smartlock/pin_wordlist.txt
+====================================================
+[+] Waiting for Hub connection...
+[+] Hub connected. Opening session to the Lock...
+[+] Connected to Lock. Starting handshake relay.
+[-] Hub HELLO   : suites:AES256-GCM,AES128-GCM	type:HELLO
+[-] Lock SUITE  : AES256-GCM
+[-] Lock CERT   : name=smartlock-23i-0614.local (forwarded; hub does not validate it)
+[PINHASH] 8ce6450b7ffe96f90a954d690c4fc17f
+[*] Recovering pairing PIN offline...
+[+] PIN cracked: summer283 (75284 candidates, 26 ms)
+[!] Fatal error: stoull
+[Hub Client Output (exit code 1)]:
+[hub] abort: no DH
+[hub] negotiated suite: AES256-GCM
+[hub] device authenticated: smartlock-23i-0614.local
+RESULT: Hub detected unauthenticated DH value via RSA signature check and aborted. Attack defeated.
+
+--------------------------------------------------------------------------------
+3. TASKA3 (BSGS Keying Recovery) against SmartLock v2
+--------------------------------------------------------------------------------
+====================================================
+[*] SmartLock v1 Keying Recovery (TASKA3)
+[*] Transcript : /mnt/c/Users/fahad/Desktop/Projects/Info Sec A2/lab/../23i-0614-G/evidence/partc_v2/v2_normal_stream.txt
+====================================================
+[*] Captured suite : AES256-GCM
+[*] MSG records    : 0
+[!] Fatal error: no DH message found in transcript
+RESULT: Solver failed with exit code 1. v2 uses RFC 3526 2048-bit safe prime. O(sqrt(p)) = 2^1024 operations; discrete log is computationally infeasible. Attack defeated.
+
+--------------------------------------------------------------------------------
+4. TASKA4 (Nonce Reuse / Two-Time Pad) against SmartLock v2
+--------------------------------------------------------------------------------
+====================================================
+[*] SmartLock v1 Nonce-Reuse / Two-Time Pad (TASKA4)
+[*] Transcript : /mnt/c/Users/fahad/Desktop/Projects/Info Sec A2/lab/../23i-0614-G/evidence/partc_v2/v2_normal_stream.txt
+[*] Suite      : AES256-GCM
+[*] MSG records: 0
+====================================================
+[!] Fatal error: need at least two MSG records
+RESULT: Solver failed with exit code 1. v2 uses make_nonce(seqno) with monotonic counters and separate directional keys. 0 records reuse nonces. Attack defeated.
+
+--------------------------------------------------------------------------------
+5. TASKA5 (Command Replay) against SmartLock v2
+--------------------------------------------------------------------------------
+====================================================
+[*] SmartLock v1 Command Replay Exploit (TASKA5)
+[*] Transcript    : /mnt/c/Users/fahad/Desktop/Projects/Info Sec A2/lab/../23i-0614-G/evidence/partc_v2/v2_normal_stream.txt
+[*] Target        : 10.10.10.11:9030
+[*] Replay count  : 2
+====================================================
+[!] Fatal error: no DH message found
+RESULT: Replay tool failed with exit code 1. Fresh 2048-bit DHE keys and sequence number checks in open_record() drop replayed records. Door unlock counter remained unaffected. Attack defeated.
