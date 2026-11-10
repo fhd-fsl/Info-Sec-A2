@@ -1,0 +1,22 @@
+# Build artifacts and binaries
+*.exe
+*.o
+*.obj
+*.so
+*.a
+*.zip
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Binaries from lab
+lab/smartlock/lock_server
+lab/smartlock/hub_client
+lab/v2_skeleton/lock_server2
+lab/v2_skeleton/hub_client2

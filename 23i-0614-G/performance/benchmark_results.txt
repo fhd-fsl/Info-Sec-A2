@@ -1,0 +1,33 @@
+===================================================================
+SmartLock Cryptographic Performance Study (v1 vs v2)
+Student: Fahad Bin Faisal (23i-0614, Section G)
+Target : 10.10.10.11 (v1 Port: 9030, v2 Port: 9031)
+===================================================================
+
+[*] 1. Measuring Handshake Latency (35 runs each)...
+    Running v1 handshakes... Done.
+    Running v2 handshakes... Done.
+
+    Handshake Latency Results (ms):
+    v1: Mean = 1.6424 ms, StdDev = 0.5670 ms (Min = 1.1434, Max = 4.2170)
+    v2: Mean = 3.3843 ms, StdDev = 1.3325 ms (Min = 2.2496, Max = 8.0816)
+    Difference: +1.7419 ms (v2 security overhead)
+
+[*] 2. Measuring Per-Record Wire Overhead & Processing Latency...
+    Per-Record Overhead Results:
+    v1 Extra Wire Bytes : 16 bytes (16B GCM tag)
+    v2 Extra Wire Bytes : 24 bytes (8B seqno AAD + 16B GCM tag)
+    v1 Protect Latency  : 0.5166 us (stddev = 0.2032 us)
+    v1 Open Latency     : 0.5166 us (stddev = 0.4259 us)
+    v2 Protect Latency  : 0.5239 us (stddev = 0.7804 us)
+    v2 Open Latency     : 0.5453 us (stddev = 0.2873 us)
+
+[*] 3. Measuring Bulk Throughput (10000 records of 1024 bytes, 5 runs each)...
+    Bulk Throughput Results (MB/s):
+    v1 Protect Throughput: 913.2613 MB/s (stddev = 178.1615 MB/s)
+    v1 Open Throughput   : 1000.1293 MB/s (stddev = 140.4529 MB/s)
+    v2 Protect Throughput: 1444.2876 MB/s (stddev = 33.5655 MB/s)
+    v2 Open Throughput   : 1090.6418 MB/s (stddev = 78.4679 MB/s)
+
+[+] JSON results exported to: /mnt/c/Users/fahad/Desktop/Projects/Info Sec A2/lab/../23i-0614-G/performance/benchmark_data.json
+===================================================================

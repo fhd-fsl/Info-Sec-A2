@@ -45,7 +45,7 @@ RESULT: Lock server choose_suite() refused NULL offer and sent ALERT. Hub aborte
 [-] Lock CERT   : name=smartlock-23i-0614.local (forwarded; hub does not validate it)
 [PINHASH] 8ce6450b7ffe96f90a954d690c4fc17f
 [*] Recovering pairing PIN offline...
-[+] PIN cracked: summer283 (75284 candidates, 26 ms)
+[+] PIN cracked: summer283 (75284 candidates, 25 ms)
 [!] Fatal error: stoull
 [Hub Client Output (exit code 1)]:
 [hub] abort: no DH

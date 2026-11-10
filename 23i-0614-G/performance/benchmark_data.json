@@ -1,0 +1,14 @@
+{
+  "handshake_v1": {"mean": 1.64244, "stddev": 0.566978},
+  "handshake_v2": {"mean": 3.38431, "stddev": 1.3325},
+  "extra_bytes_v1": 16,
+  "extra_bytes_v2": 24,
+  "protect_us_v1": {"mean": 0.516599, "stddev": 0.203217},
+  "open_us_v1": {"mean": 0.516619, "stddev": 0.425921},
+  "protect_us_v2": {"mean": 0.523929, "stddev": 0.780366},
+  "open_us_v2": {"mean": 0.545263, "stddev": 0.287253},
+  "tp_protect_mbps_v1": {"mean": 913.261, "stddev": 178.162},
+  "tp_open_mbps_v1": {"mean": 1000.13, "stddev": 140.453},
+  "tp_protect_mbps_v2": {"mean": 1444.29, "stddev": 33.5655},
+  "tp_open_mbps_v2": {"mean": 1090.64, "stddev": 78.4679}
+}
